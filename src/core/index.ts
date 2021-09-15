@@ -1,8 +1,18 @@
-import { Button, Input, Menu, Form, Select, Result } from "ant-design-vue";
+import {
+  Button,
+  Input,
+  Menu,
+  Form,
+  Select,
+  Result,
+  Dropdown,
+} from "ant-design-vue";
 import {
   RedditOutlined,
   UserOutlined,
   LockOutlined,
+  ExportOutlined,
+  SyncOutlined,
 } from "@ant-design/icons-vue";
 
 const ant = {
@@ -21,11 +31,14 @@ const ant = {
     Vue.component(Select.name, Select);
     Vue.component(Select.Option.name, Select.Option);
     Vue.component(Result.name, Result);
+    Vue.component(Dropdown.name, Dropdown);
 
     // icon
     Vue.component(RedditOutlined.name, RedditOutlined);
     Vue.component(UserOutlined.name, UserOutlined);
     Vue.component(LockOutlined.name, LockOutlined);
+    Vue.component(ExportOutlined.name, ExportOutlined);
+    Vue.component(SyncOutlined.name, SyncOutlined);
   },
 };
 export default ant;

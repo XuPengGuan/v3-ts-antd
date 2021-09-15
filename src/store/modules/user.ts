@@ -1,4 +1,4 @@
-import { setCookie } from "@/utils/cookies";
+import { setCookie, removeCookie } from "@/utils/cookies";
 import { ActionContext } from "vuex";
 import { IStore } from "@/store/type";
 type IUserinfo = {
@@ -26,7 +26,11 @@ const actions = {
     userinfo: IUserinfo
   ): void {
     commit("SET_USERINFO", userinfo);
-    setCookie("cookie-value");
+    setCookie(JSON.stringify(userinfo));
+  },
+  logout(): void {
+    removeCookie();
+    location.reload();
   },
 };
 
