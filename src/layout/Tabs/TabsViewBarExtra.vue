@@ -1,10 +1,10 @@
 <template>
-  <div>tabs组件</div>
+  <div class="tabs-view-bar-extra-wrapper">刷新</div>
 </template>
 
 <script>
 export default {
-  name: "tab-view",
+  name: "TabViewBarExtra",
 };
 </script>
 

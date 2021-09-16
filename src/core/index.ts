@@ -6,6 +6,7 @@ import {
   Select,
   Result,
   Dropdown,
+  Tabs,
 } from "ant-design-vue";
 import {
   RedditOutlined,
@@ -13,6 +14,8 @@ import {
   LockOutlined,
   ExportOutlined,
   SyncOutlined,
+  CloseOutlined,
+  ReloadOutlined,
 } from "@ant-design/icons-vue";
 
 const ant = {
@@ -32,6 +35,8 @@ const ant = {
     Vue.component(Select.Option.name, Select.Option);
     Vue.component(Result.name, Result);
     Vue.component(Dropdown.name, Dropdown);
+    Vue.component(Tabs.name, Tabs);
+    Vue.component(Tabs.TabPane.name, Tabs.TabPane);
 
     // icon
     Vue.component(RedditOutlined.name, RedditOutlined);
@@ -39,6 +44,8 @@ const ant = {
     Vue.component(LockOutlined.name, LockOutlined);
     Vue.component(ExportOutlined.name, ExportOutlined);
     Vue.component(SyncOutlined.name, SyncOutlined);
+    Vue.component(CloseOutlined.name, CloseOutlined);
+    Vue.component(ReloadOutlined.name, ReloadOutlined);
   },
 };
 export default ant;

@@ -33,7 +33,7 @@ export default defineComponent({
   name: "NavHeader",
   setup() {
     const handleLogout = () => {
-      store.dispatch("logout");
+      store.dispatch("user/logout");
     };
     return {
       handleLogout,

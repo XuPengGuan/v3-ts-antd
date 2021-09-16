@@ -7,7 +7,7 @@ function getCookie(): string {
 }
 
 function setCookie(value: string): boolean {
-  return Cookies.set(CookieKey, value);
+  return Cookies.set(CookieKey, value, { expires: 3 });
 }
 
 function removeCookie(): boolean {

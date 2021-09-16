@@ -5,9 +5,6 @@
 <script>
 export default {
   name: "index",
-  setup() {
-    console.log(2);
-  },
 };
 </script>
 

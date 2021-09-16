@@ -8,8 +8,5 @@
 <script>
 export default {
   name: "ref",
-  setup() {
-    console.log("ref");
-  },
 };
 </script>

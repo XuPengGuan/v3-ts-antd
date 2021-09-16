@@ -1,13 +1,10 @@
 <template>
-  <div>首页</div>
+  <div style="height: 1000px">首页</div>
 </template>
 
 <script>
 export default {
   name: "index.vue",
-  setup() {
-    console.log(1);
-  },
 };
 </script>
 

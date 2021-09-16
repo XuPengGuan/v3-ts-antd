@@ -49,7 +49,7 @@ import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { message as Message } from "ant-design-vue";
 import { user } from "@/config";
-import { urlToJson } from "@/utils/tools";
+import { urlToJson } from "@/utils/utils";
 
 export default defineComponent({
   name: "login",
@@ -75,7 +75,7 @@ export default defineComponent({
         .then(() => {
           let { username, password } = form;
           if (username === user.username && password === user.password) {
-            store.dispatch("login", form);
+            store.dispatch("user/login", form);
             const redirect = route.query?.redirect || "/";
             const toPath = decodeURIComponent(redirect);
             const urlJson = urlToJson(redirect);
