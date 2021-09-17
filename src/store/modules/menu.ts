@@ -1,12 +1,13 @@
 import { defineHomeText } from "@/utils/enum";
-type ITabsListItem = {
+import router from "@/router";
+interface ITabsListItem {
   name: string;
-};
+}
 
-type IUserState = {
+interface IUserState {
   tabsActiveKey: string;
   tabsList: Array<ITabsListItem>;
-};
+}
 
 const state: IUserState = {
   tabsActiveKey: defineHomeText,
@@ -24,15 +25,19 @@ const mutations = {
       state.tabsList.push(data);
     }
   },
-  SET_TABS_ACTIVE_KEY(state: IUserState, value: string): void {
-    state.tabsActiveKey = value;
+  SET_TABS_ACTIVE_KEY(state: IUserState, key: string): void {
+    state.tabsActiveKey = key;
   },
   REMOVE_TABS_LIST_ITEM(state: IUserState, key: string): void {
     const { tabsList } = state;
-    tabsList.splice(
+    const [removeKey] = tabsList.splice(
       tabsList.findIndex((item) => item.name === key),
       1
     );
+    // 如果删除当前选中的，则转为首页
+    if (removeKey.name === state.tabsActiveKey) {
+      router.push({ name: defineHomeText });
+    }
   },
 };
 

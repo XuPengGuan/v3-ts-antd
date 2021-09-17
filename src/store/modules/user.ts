@@ -1,14 +1,14 @@
 import { setCookie, removeCookie } from "@/utils/cookies";
 import { ActionContext } from "vuex";
 import { IStore } from "@/store/type";
-type IUserinfo = {
+interface IUserinfo {
   username?: string;
-};
+}
 
-export type IUserState = {
+export interface IUserState {
   userinfo: IUserinfo;
   token: string;
-};
+}
 
 const state: IUserState = {
   userinfo: {},

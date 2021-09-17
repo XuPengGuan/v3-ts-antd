@@ -16,6 +16,9 @@ import {
   SyncOutlined,
   CloseOutlined,
   ReloadOutlined,
+  DownOutlined,
+  VerticalRightOutlined,
+  VerticalLeftOutlined,
 } from "@ant-design/icons-vue";
 
 const ant = {
@@ -29,6 +32,7 @@ const ant = {
     Vue.component(Menu.name, Menu);
     Vue.component(Menu.SubMenu.name, Menu.SubMenu);
     Vue.component(Menu.Item.name, Menu.Item);
+    Vue.component(Menu.Divider.name, Menu.Divider);
     Vue.component(Form.name, Form);
     Vue.component(Form.Item.name, Form.Item);
     Vue.component(Select.name, Select);
@@ -46,6 +50,9 @@ const ant = {
     Vue.component(SyncOutlined.name, SyncOutlined);
     Vue.component(CloseOutlined.name, CloseOutlined);
     Vue.component(ReloadOutlined.name, ReloadOutlined);
+    Vue.component(DownOutlined.name, DownOutlined);
+    Vue.component(VerticalRightOutlined.name, VerticalRightOutlined);
+    Vue.component(VerticalLeftOutlined.name, VerticalLeftOutlined);
   },
 };
 export default ant;

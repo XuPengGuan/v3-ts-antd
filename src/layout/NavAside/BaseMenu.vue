@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref, watchEffect } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import store from "@/store";
 import routes from "@/router/config";
@@ -48,12 +48,15 @@ export default defineComponent({
         router.push({ name: key });
       },
     });
-    watchEffect(() => {
-      // 往tabsList推数据
-      store.commit("menu/SET_PUSH_TABS_LIST", { name: route.name });
-      // 更改tabsActiveKey的值
-      store.commit("menu/SET_TABS_ACTIVE_KEY", route.name);
-    });
+    watch(
+      () => route.fullPath,
+      () => {
+        // 往tabsList推数据
+        store.commit("menu/SET_PUSH_TABS_LIST", { name: route.name });
+        // 更改tabsActiveKey的值
+        store.commit("menu/SET_TABS_ACTIVE_KEY", route.name);
+      }
+    );
     return {
       menus,
       openKeys,

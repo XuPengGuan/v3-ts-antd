@@ -1,4 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
+import { defineHomeText } from "@/utils/enum";
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
@@ -12,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "/",
-        name: "首页",
+        name: defineHomeText,
         component: () => import("@/views/home/index.vue"),
       },
       {

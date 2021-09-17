@@ -12,15 +12,32 @@
       :closable="item.closable"
     >
       <template #tab>
-        <SyncOutlined class="tab-refresh-wrapper" />
-        <span class="tab-name-wrapper">{{ item.name }}</span>
-        <CloseOutlined
-          v-if="item.name !== defineHomeText"
-          class="tab-close-wrapper"
-          @click.stop="handleTabsEdit(item.name)"
-        />
+        <a-dropdown :trigger="['contextmenu']">
+          <div @contextmenu="handleContextmenu(item.name)">
+            <SyncOutlined class="tab-refresh-wrapper" />
+            <span class="tab-name-wrapper">{{ item.name }}</span>
+            <CloseOutlined
+              v-if="item.name !== defineHomeText"
+              class="tab-close-wrapper"
+              @click.stop="handleTabsEdit(item.name)"
+            />
+          </div>
+          <template #overlay>
+            <TabViewBarExtra :contextMenuKey="contextMenuKey" />
+          </template>
+        </a-dropdown>
       </template>
     </a-tab-pane>
+    <template #tabBarExtraContent>
+      <div class="tabs-view-bar-extra-wrapper">
+        <a-dropdown :trigger="['hover']">
+          <DownOutlined />
+          <template #overlay>
+            <TabViewBarExtra />
+          </template>
+        </a-dropdown>
+      </div>
+    </template>
   </a-tabs>
   <div class="content-wrapper">
     <router-view v-slot="{ Component }">
@@ -34,14 +51,21 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import store from "@/store";
 import router from "@/router";
+import { useRoute } from "vue-router";
 import { defineHomeText } from "@/utils/enum";
+import TabViewBarExtra from "./TabsViewBarExtra";
 
 export default defineComponent({
-  name: "tab-view",
+  name: "tabsView",
+  components: {
+    TabViewBarExtra,
+  },
   setup() {
+    const route = useRoute();
+
     const tabsActiveKey = computed({
       get() {
         return store.state.menu.tabsActiveKey;
@@ -50,18 +74,27 @@ export default defineComponent({
         router.push({ name: key });
       },
     });
+    // 往tabsList推数据
+    store.commit("menu/SET_PUSH_TABS_LIST", { name: route.name });
+    // 更改tabsActiveKey的值
+    store.commit("menu/SET_TABS_ACTIVE_KEY", route.name);
 
     const tabsList = computed(() => store.state.menu.tabsList);
     // 删除tabsItem
     const handleTabsEdit = (targetKey) => {
       store.commit("menu/REMOVE_TABS_LIST_ITEM", targetKey);
     };
-
+    let contextMenuKey = ref(undefined); // 右键选中的tabs
+    const handleContextmenu = (targetKey) => {
+      contextMenuKey.value = targetKey;
+    };
     return {
       tabsActiveKey,
       tabsList,
       handleTabsEdit,
       defineHomeText,
+      contextMenuKey,
+      handleContextmenu,
     };
   },
 });
@@ -94,17 +127,35 @@ export default defineComponent({
       font-size: 14px;
     }
   }
+  /deep/.ant-tabs-bar {
+    margin-bottom: 0;
+  }
+  .tabs-view-bar-extra-wrapper {
+    margin-right: 20px;
+  }
 }
 .content-wrapper {
   flex: 1;
   position: relative;
   overflow: hidden auto;
+  background-color: #eee;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 5px;
+  }
   .native_router-view-wrapper {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    padding: 0 10px;
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
   }
   /* 可以设置不同的进入和离开动画   */
   /* 设置持续时间和动画函数        */

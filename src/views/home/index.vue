@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 1000px">首页</div>
+  <div style="height: 1000px">首132页内容</div>
 </template>
 
 <script>
