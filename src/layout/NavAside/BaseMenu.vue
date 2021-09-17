@@ -8,6 +8,7 @@
   >
     <template v-for="item of menus">
       <a-menu-item v-if="!item.children?.length" :key="item.name">
+        <component :is="item.meta?.icon" />
         <span>{{ item.name }}</span>
       </a-menu-item>
       <template v-else>

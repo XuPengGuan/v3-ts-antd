@@ -16,16 +16,25 @@ const routes: Array<RouteRecordRaw> = [
         path: "/",
         name: defineHomeText,
         component: () => import("@/views/home/index.vue"),
+        meta: {
+          icon: "HomeOutlined",
+        },
       },
       {
         path: "/authMange",
         name: "权限管理",
         component: () => import("@/views/authMange/index.vue"),
+        meta: {
+          icon: "ExportOutlined",
+        },
       },
       {
         path: "/demo",
         name: "demo演示",
         component: () => import("@/views/index.vue"),
+        meta: {
+          icon: "ExportOutlined",
+        },
         children: [
           {
             path: "custom-modal",
@@ -50,6 +59,9 @@ const routes: Array<RouteRecordRaw> = [
         path: "/antdDemo",
         name: "antdDemo",
         component: () => import("@/views/index.vue"),
+        meta: {
+          icon: "ExportOutlined",
+        },
         children: [
           {
             path: "form",

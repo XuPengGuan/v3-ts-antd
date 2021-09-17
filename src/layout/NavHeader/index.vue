@@ -2,7 +2,7 @@
   <header class="header-wrapper">
     <div class="left-options">
       <ExportOutlined class="icon-wrapper" />
-      <SyncOutlined class="icon-wrapper" />
+      <SyncOutlined class="icon-wrapper" @click="handleReload" />
     </div>
     <div class="right-options">
       <ExportOutlined class="icon-wrapper" />
@@ -32,11 +32,17 @@ import store from "@/store";
 export default defineComponent({
   name: "NavHeader",
   setup() {
+    // 登出
     const handleLogout = () => {
       store.dispatch("user/logout");
     };
+    // 刷新
+    const handleReload = () => {
+      location.reload();
+    };
     return {
       handleLogout,
+      handleReload,
     };
   },
 });
@@ -54,8 +60,12 @@ export default defineComponent({
   .right-options {
     .icon-wrapper {
       cursor: pointer;
-      margin-right: 20px;
+      margin-right: 10px;
       vertical-align: middle;
+      padding: 5px;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
   .system-wrapper {

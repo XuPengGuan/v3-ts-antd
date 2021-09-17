@@ -19,6 +19,7 @@ import {
   DownOutlined,
   VerticalRightOutlined,
   VerticalLeftOutlined,
+  HomeOutlined,
 } from "@ant-design/icons-vue";
 
 const ant = {
@@ -53,6 +54,7 @@ const ant = {
     Vue.component(DownOutlined.name, DownOutlined);
     Vue.component(VerticalRightOutlined.name, VerticalRightOutlined);
     Vue.component(VerticalLeftOutlined.name, VerticalLeftOutlined);
+    Vue.component(HomeOutlined.name, HomeOutlined);
   },
 };
 export default ant;
