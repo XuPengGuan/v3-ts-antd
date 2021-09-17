@@ -52,11 +52,11 @@
 
 <script>
 import { defineComponent, computed, ref } from "vue";
+import { useRoute } from "vue-router";
 import store from "@/store";
 import router from "@/router";
-import { useRoute } from "vue-router";
-import { defineHomeText } from "@/utils/enum";
 import TabViewBarExtra from "./TabsViewBarExtra";
+import { defineHomeText } from "@/utils/enum";
 
 export default defineComponent({
   name: "tabsView",

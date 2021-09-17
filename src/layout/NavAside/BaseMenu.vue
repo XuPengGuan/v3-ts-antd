@@ -19,9 +19,10 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref, watch } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { computed, defineComponent, ref } from "vue";
+import { useRoute } from "vue-router";
 import store from "@/store";
+import router from "@/router";
 import routes from "@/router/config";
 import BaseSubMenu from "@/layout/NavAside/BaseSubMenu";
 
@@ -31,10 +32,7 @@ export default defineComponent({
     BaseSubMenu,
   },
   setup() {
-    // 当前路由
-    const router = useRouter();
     const route = useRoute();
-
     // 路由菜单
     const menus = routes.find((item) => item.name === "Layout").children;
     // 获取当前打开的节点
@@ -49,15 +47,6 @@ export default defineComponent({
         router.push({ name: key });
       },
     });
-    watch(
-      () => route.fullPath,
-      () => {
-        // 往tabsList推数据
-        store.commit("menu/SET_PUSH_TABS_LIST", { name: route.name });
-        // 更改tabsActiveKey的值
-        store.commit("menu/SET_TABS_ACTIVE_KEY", route.name);
-      }
-    );
     return {
       menus,
       openKeys,
