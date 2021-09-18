@@ -3,9 +3,11 @@
     <a-menu-item
       key="1"
       :disabled="contextMenuKey && contextMenuKey !== tabsActiveKey"
+      @click="refreshSelectedTag"
     >
-      <SyncOutlined />刷新</a-menu-item
-    >
+      <SyncOutlined />
+      刷新
+    </a-menu-item>
     <a-menu-item
       key="2"
       :disabled="
@@ -27,9 +29,11 @@
 </template>
 
 <script>
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, unref } from "vue";
 import store from "@/store";
-import { defineHomeText } from "@/utils/enum";
+import router from "@/router";
+import { useRoute } from "vue-router";
+import { defineHomeText, defineRedirectPath } from "@/utils/enum";
 
 export default defineComponent({
   name: "TabViewBarExtra",
@@ -37,7 +41,14 @@ export default defineComponent({
     contextMenuKey: String,
   },
   setup(props) {
+    const route = useRoute();
+
     const tabsActiveKey = computed(() => store.state.menu.tabsActiveKey);
+    const refreshSelectedTag = () => {
+      router.replace({
+        path: defineRedirectPath + unref(route).fullPath,
+      });
+    };
     // 关闭当前
     const handleTabsEdit = () => {
       if (props.contextMenuKey) {
@@ -47,6 +58,7 @@ export default defineComponent({
       }
     };
     return {
+      refreshSelectedTag,
       handleTabsEdit,
       tabsActiveKey,
       defineHomeText,

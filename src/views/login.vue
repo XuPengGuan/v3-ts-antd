@@ -22,6 +22,7 @@
             v-model:value="form.password"
             :placeholder="user.password"
             size="large"
+            @keypress.enter="handleLogin"
           >
             <template #prefix>
               <lock-outlined />
@@ -79,7 +80,7 @@ export default defineComponent({
             const redirect = route.query?.redirect || "/";
             const toPath = decodeURIComponent(redirect);
             const urlJson = urlToJson(redirect);
-            router.push({
+            router.replace({
               path: toPath,
               query: urlJson,
             });

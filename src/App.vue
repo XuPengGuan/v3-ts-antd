@@ -2,4 +2,6 @@
   <router-view />
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+@import "~@/styles/common.less";
+</style>

@@ -3,9 +3,14 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "index",
-};
+  setup() {
+    console.log(456);
+  },
+});
 </script>
 
 <style scoped></style>

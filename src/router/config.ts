@@ -1,15 +1,9 @@
 import { RouteRecordRaw } from "vue-router";
-import { defineHomeText } from "@/utils/enum";
-
+import { defineHomeText, defineLayoutText } from "@/utils/enum";
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/login",
-    name: "login",
-    component: () => import("@/views/login.vue"),
-  },
-  {
     path: "/",
-    name: "Layout",
+    name: defineLayoutText,
     component: () => import("@/layout/index.vue"),
     children: [
       {
@@ -39,7 +33,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: "custom-modal",
             name: "自定义弹框",
-            component: () => import("@/views/demo/modules/customModal.vue"),
+            component: () => import("@/views/index.vue"),
             children: [
               {
                 path: "test2",
@@ -76,6 +70,16 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
     ],
+  },
+  {
+    path: "/redirect/:path*",
+    name: "重定向",
+    component: () => import("@/views/redirect.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/login.vue"),
   },
   {
     path: "/:catchAll(.*)",

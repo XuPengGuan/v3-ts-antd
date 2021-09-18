@@ -25,6 +25,7 @@ import store from "@/store";
 import router from "@/router";
 import routes from "@/router/config";
 import BaseSubMenu from "@/layout/NavAside/BaseSubMenu";
+import { defineLayoutText } from "@/utils/enum";
 
 export default defineComponent({
   name: "BaseMenu",
@@ -34,7 +35,9 @@ export default defineComponent({
   setup() {
     const route = useRoute();
     // 路由菜单
-    const menus = routes.find((item) => item.name === "Layout").children;
+    const menus = routes.find(
+      (item) => item.name === defineLayoutText
+    ).children;
     // 获取当前打开的节点
     const getOpenKeys = () =>
       route.matched.reduce((arr, item) => [...arr, item.name], []);
