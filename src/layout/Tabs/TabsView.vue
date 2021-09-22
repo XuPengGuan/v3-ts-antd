@@ -14,7 +14,7 @@
       <template #tab>
         <a-dropdown :trigger="['contextmenu']">
           <div @contextmenu="handleContextmenu(item.name)">
-            <SyncOutlined class="tab-refresh-wrapper" />
+            <SyncOutlined class="tab-refresh-wrapper" :spin="isRefresh" />
             <span class="tab-name-wrapper">{{ item.name }}</span>
             <CloseOutlined
               v-if="item.name !== defineHomeText"
@@ -41,7 +41,7 @@
   </a-tabs>
   <div class="content-wrapper">
     <div class="router-viewer">
-      <router-view v-slot="{ Component }">
+      <router-view v-if="!isRefresh" v-slot="{ Component }">
         <keep-alive>
           <component :is="Component" />
         </keep-alive>
@@ -78,7 +78,7 @@ export default defineComponent({
     store.commit("menu/SET_PUSH_TABS_LIST", { name: route.name });
     // 更改tabsActiveKey的值
     store.commit("menu/SET_TABS_ACTIVE_KEY", route.name);
-
+    const isRefresh = computed(() => store.state.menu.isRefresh);
     const tabsList = computed(() => store.state.menu.tabsList);
     // 删除tabsItem
     const handleTabsEdit = (targetKey) => {
@@ -95,6 +95,7 @@ export default defineComponent({
       defineHomeText,
       contextMenuKey,
       handleContextmenu,
+      isRefresh,
     };
   },
 });

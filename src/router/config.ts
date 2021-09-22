@@ -72,11 +72,6 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/redirect/:path*",
-    name: "重定向",
-    component: () => import("@/views/redirect.vue"),
-  },
-  {
     path: "/login",
     name: "login",
     component: () => import("@/views/login.vue"),

@@ -29,11 +29,9 @@
 </template>
 
 <script>
-import { computed, defineComponent, unref } from "vue";
+import { computed, defineComponent } from "vue";
 import store from "@/store";
-import router from "@/router";
-import { useRoute } from "vue-router";
-import { defineHomeText, defineRedirectPath } from "@/utils/enum";
+import { defineHomeText } from "@/utils/enum";
 
 export default defineComponent({
   name: "TabViewBarExtra",
@@ -41,14 +39,13 @@ export default defineComponent({
     contextMenuKey: String,
   },
   setup(props) {
-    const route = useRoute();
-
     const tabsActiveKey = computed(() => store.state.menu.tabsActiveKey);
+
+    // 刷新
     const refreshSelectedTag = () => {
-      router.replace({
-        path: defineRedirectPath + unref(route).fullPath,
-      });
+      store.dispatch("menu/setIsRefresh");
     };
+
     // 关闭当前
     const handleTabsEdit = () => {
       if (props.contextMenuKey) {
