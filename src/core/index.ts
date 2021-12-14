@@ -7,6 +7,7 @@ import {
   Result,
   Dropdown,
   Tabs,
+  Tooltip,
 } from "ant-design-vue";
 import {
   RedditOutlined,
@@ -42,6 +43,7 @@ const ant = {
     Vue.component(Dropdown.name, Dropdown);
     Vue.component(Tabs.name, Tabs);
     Vue.component(Tabs.TabPane.name, Tabs.TabPane);
+    Vue.component(Tooltip.name, Tooltip);
 
     // icon
     Vue.component(RedditOutlined.name, RedditOutlined);

@@ -2,6 +2,38 @@
   <div>
     I am div
     <div>content</div>
+    <a-tooltip
+      :trigger="['hover']"
+      placement="topLeft"
+      overlay-class-name="numeric-input"
+      :mouseEnterDelay="0.3"
+    >
+      <!--      <span v-if="value" slot="title" class="numeric-input-title">-->
+      <!--        {{ value !== "-" ? formatNumber(value) : "-" }}-->
+      <!--      </span>-->
+      <template v-slot:title> Input a number </template>
+      <a-input
+        placeholder="Input a number"
+        :max-length="25"
+        style="width: 120px"
+      />
+    </a-tooltip>
+    <a-tooltip
+      :trigger="['hover']"
+      placement="topLeft"
+      overlay-class-name="numeric-input"
+      :mouseEnterDelay="0.3"
+    >
+      <!--      <span v-if="value" slot="title" class="numeric-input-title">-->
+      <!--        {{ value !== "-" ? formatNumber(value) : "-" }}-->
+      <!--      </span>-->
+      <template v-slot:title> Input a number </template>
+      <a-input
+        placeholder="Input a number"
+        :max-length="25"
+        style="width: 120px"
+      />
+    </a-tooltip>
     <a-dropdown :trigger="['contextmenu']">
       <div
         :style="{

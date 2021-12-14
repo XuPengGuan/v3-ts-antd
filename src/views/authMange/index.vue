@@ -2,14 +2,12 @@
   <div>人员管理</div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "index",
-  setup() {
-    console.log(456);
-  },
+  setup() {},
 });
 </script>
 
