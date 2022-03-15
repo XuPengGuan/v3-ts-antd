@@ -6,7 +6,7 @@
       id="iframe"
       width="1500px"
       height="700px"
-      src="http://localhost:9528/#/w/deployingworkflows"
+      src="http://localhost:9010/#/sourceOfDanger?showMenu=false"
     ></iframe>
   </div>
 </template>

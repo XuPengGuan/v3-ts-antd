@@ -1,54 +1,54 @@
-{
-  "compilerOptions": {
-    "target": "esnext", // target用于指定编译之后的版本目录
-    "module": "esnext", // module用来指定要使用的模板标准
-    "checkJs": false, // checkJs用来指定是否检查和报告JS文件中的错误，默认false
-    "strict": true,
-    "jsx": "preserve", // 指定jsx代码用于的开发环境:'preserve','react-native',or 'react
-    "allowJs": false, // allowJs用来指定是否允许编译JS文件，默认false,即不编译JS文件
-    "declaration": true, // declaration用来指定是否在编译的时候生成相的d.ts声明文件，如果设为true,编译每个ts文件之后会生成一个js文件和一个声明文件，但是declaration和allowJs不能同时设为true
-    "isolatedModules": true, // isolatedModules指定是否将每个文件作为单独的模块，默认为true，他不可以和declaration同时设定
-    "declarationMap": true, // declarationMap用来指定编译时是否生成.map文件
-//    "outFile": "./", // outFile用于指定输出文件合并为一个文件，只有设置module的值为amd和system模块时才支持这个配置
-//    "outDir": "./", // outDir用来指定输出文件夹，值为一个文件夹路径字符串，输出的文件都将放置在这个文件夹
-//    "rootDir": "./", // rootDir用来指定编译文件的根目录，编译器会在根目录查找入口文件
-    "composite": true, // composite是否编译构建引用项目
-    "removeComments": true, // removeComments用于指定是否将编译后的文件注释删掉，设为true的话即删除注释，默认为false
-    "noEmit": true, // noEmit不生成编译文件
-    "importHelpers": true, // importHelpers指定是否引入tslib里的复制工具函数，默认为false
-    "downlevelIteration": true, // 当target为"ES5"或"ES3"时，为"for-of" "spread"和"destructuring"中的迭代器提供完全支持
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true, // sourceMap用来指定编译时是否生成.map文件
-    "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ] // lib用于指定要包含在编译中的库文件
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
-}
+//{
+//  "compilerOptions": {
+//    "target": "esnext", // target用于指定编译之后的版本目录
+//    "module": "esnext", // module用来指定要使用的模板标准
+//    "checkJs": false, // checkJs用来指定是否检查和报告JS文件中的错误，默认false
+//    "strict": true,
+//    "jsx": "preserve", // 指定jsx代码用于的开发环境:'preserve','react-native',or 'react
+//    "allowJs": false, // allowJs用来指定是否允许编译JS文件，默认false,即不编译JS文件
+//    "declaration": true, // declaration用来指定是否在编译的时候生成相的d.ts声明文件，如果设为true,编译每个ts文件之后会生成一个js文件和一个声明文件，但是declaration和allowJs不能同时设为true
+//    "isolatedModules": true, // isolatedModules指定是否将每个文件作为单独的模块，默认为true，他不可以和declaration同时设定
+//    "declarationMap": true, // declarationMap用来指定编译时是否生成.map文件
+////    "outFile": "./", // outFile用于指定输出文件合并为一个文件，只有设置module的值为amd和system模块时才支持这个配置
+////    "outDir": "./", // outDir用来指定输出文件夹，值为一个文件夹路径字符串，输出的文件都将放置在这个文件夹
+////    "rootDir": "./", // rootDir用来指定编译文件的根目录，编译器会在根目录查找入口文件
+//    "composite": true, // composite是否编译构建引用项目
+//    "removeComments": true, // removeComments用于指定是否将编译后的文件注释删掉，设为true的话即删除注释，默认为false
+//    "noEmit": true, // noEmit不生成编译文件
+//    "importHelpers": true, // importHelpers指定是否引入tslib里的复制工具函数，默认为false
+//    "downlevelIteration": true, // 当target为"ES5"或"ES3"时，为"for-of" "spread"和"destructuring"中的迭代器提供完全支持
+//    "moduleResolution": "node",
+//    "skipLibCheck": true,
+//    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
+//    "sourceMap": true, // sourceMap用来指定编译时是否生成.map文件
+//    "baseUrl": ".",
+//    "types": [
+//      "webpack-env"
+//    ],
+//    "paths": {
+//      "@/*": [
+//        "src/*"
+//      ]
+//    },
+//    "lib": [
+//      "esnext",
+//      "dom",
+//      "dom.iterable",
+//      "scripthost"
+//    ] // lib用于指定要包含在编译中的库文件
+//  },
+//  "include": [
+//    "src/**/*.ts",
+//    "src/**/*.tsx",
+//    "src/**/*.vue",
+//    "tests/**/*.ts",
+//    "tests/**/*.tsx"
+//  ],
+//  "exclude": [
+//    "node_modules"
+//  ]
+//}
 
 //{
 //  "compilerOptions": {
@@ -61,3 +61,44 @@
 //    "moduleResolution": "node"
 //  }
 //}
+
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env",
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

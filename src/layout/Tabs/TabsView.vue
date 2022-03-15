@@ -128,7 +128,7 @@ export default defineComponent({
       font-size: 14px;
     }
   }
-  /deep/.ant-tabs-bar {
+  :deep(.ant-tabs-bar) {
     margin-bottom: 0;
   }
   .tabs-view-bar-extra-wrapper {
