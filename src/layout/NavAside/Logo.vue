@@ -6,7 +6,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 defineProps({
   collapsed: {
     type: Boolean,

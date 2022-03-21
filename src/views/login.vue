@@ -53,7 +53,7 @@ import { user } from "@/config";
 import { urlToJson } from "@/utils/utils";
 
 export default defineComponent({
-  name: "login",
+  name: "loginCom",
   setup() {
     const store = useStore();
     const route = useRoute();

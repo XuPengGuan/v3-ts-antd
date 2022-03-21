@@ -14,7 +14,11 @@
       <template #tab>
         <a-dropdown :trigger="['contextmenu']">
           <div @contextmenu="handleContextmenu(item.name)">
-            <SyncOutlined class="tab-refresh-wrapper" :spin="isRefresh" />
+            <SyncOutlined
+              class="tab-refresh-wrapper"
+              :spin="isRefresh"
+              @click="refreshSelectedTag"
+            />
             <span class="tab-name-wrapper">{{ item.name }}</span>
             <CloseOutlined
               v-if="item.name !== defineHomeText"
@@ -88,6 +92,10 @@ export default defineComponent({
     const handleContextmenu = (targetKey) => {
       contextMenuKey.value = targetKey;
     };
+    // 刷新
+    const refreshSelectedTag = () => {
+      store.dispatch("menu/setIsRefresh");
+    };
     return {
       tabsActiveKey,
       tabsList,
@@ -96,6 +104,7 @@ export default defineComponent({
       contextMenuKey,
       handleContextmenu,
       isRefresh,
+      refreshSelectedTag,
     };
   },
 });

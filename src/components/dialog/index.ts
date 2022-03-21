@@ -1,4 +1,4 @@
-import { IUnknownObj } from "@/utils/utils";
+// import { IUnknownObj } from "@/utils/utils";
 
 /*function dialog(
   components: IUnknownObj,
@@ -12,13 +12,13 @@ import { IUnknownObj } from "@/utils/utils";
 
 // eslint-disable-next-line
 export default (Vue: any) => {
-  console.log(Vue, "vue123");
+  // console.log(Vue, "vue123");
   function dialog() {
     console.log("open");
   }
   new Proxy(Vue.config.globalProperties, {
     get: () => {
-      console.log("get");
+      // console.log("get");
       dialog();
     },
   });

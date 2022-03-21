@@ -116,7 +116,7 @@ class Request {
         })
         .finally(() => {
           url && this.delUrl(url);
-          console.log(this.requestUrlList, this.cancelRequestSourceList);
+          // console.log(this.requestUrlList, this.cancelRequestSourceList);
         });
     });
   }
