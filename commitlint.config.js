@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@commitlint/config-conventional"], // 自带
+  extends: ["./node_modules/vue-cli-plugin-commitlint/lib/lint"],
   rules: {
     "type-enum": [
       2,
