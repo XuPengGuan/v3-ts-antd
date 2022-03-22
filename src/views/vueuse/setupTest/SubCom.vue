@@ -7,6 +7,10 @@
 </template>
 
 <script lang="ts" setup>
+interface Person {
+  name: string;
+  age: number;
+}
 import { ref, watchPostEffect } from "vue";
 import type { Ref } from "vue";
 
@@ -18,7 +22,12 @@ const emits = defineEmits(["changeName"]);
 const clickFn = () => {
   emits("changeName", props.count);
 };
-const textColor: Ref<string> = ref("rgb(255,0,0)");
+// const textColor: Ref<string> = ref("rgb(255,0,0)");
+const partial: Ref<Person> = ref({
+  y: 789,
+  x: "123",
+});
+console.log(partial, "partial");
 watchPostEffect(
   () => {
     console.log(props.count, "watchEffect count");
@@ -35,6 +44,6 @@ watchPostEffect(
 
 <style scoped lang="less">
 .text {
-  color: v-bind(textColor);
+  //color: v-bind(textColor);
 }
 </style>

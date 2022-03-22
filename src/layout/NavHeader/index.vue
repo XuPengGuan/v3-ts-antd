@@ -1,7 +1,11 @@
 <template>
   <header class="header-wrapper">
     <div class="left-options">
-      <ExportOutlined class="icon-wrapper" />
+      <ExportOutlined
+        class="icon-wrapper"
+        :rotate="collapsed ? 0 : 180"
+        @click="toggleCollapsed"
+      />
       <SyncOutlined class="icon-wrapper" @click="handleReload" />
     </div>
     <div class="right-options">
@@ -27,21 +31,29 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import store from "@/store";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "NavHeader",
   setup() {
+    const store = useStore();
     // 登出
     const handleLogout = () => {
       store.dispatch("user/logout");
+    };
+    const collapsed = computed(() => store.state.menu.collapsed);
+    const toggleCollapsed = () => {
+      store.commit("menu/TOGGLE_COLLAPSED");
     };
     // 刷新
     const handleReload = () => {
       location.reload();
     };
+
     return {
       handleLogout,
+      collapsed,
+      toggleCollapsed,
       handleReload,
     };
   },

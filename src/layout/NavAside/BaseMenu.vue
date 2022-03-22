@@ -5,6 +5,7 @@
     theme="dark"
     v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys"
+    :inline-collapsed="collapsed"
   >
     <template v-for="item of menus">
       <a-menu-item v-if="!item.children?.length" :key="item.name">
@@ -21,7 +22,7 @@
 <script>
 import { computed, defineComponent, ref } from "vue";
 import { useRoute } from "vue-router";
-import store from "@/store";
+import { useStore } from "vuex";
 import router from "@/router";
 import routes from "@/router/config";
 import BaseSubMenu from "@/layout/NavAside/BaseSubMenu";
@@ -34,6 +35,7 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
+    const store = useStore();
     // 路由菜单
     const menus = routes.find(
       (item) => item.name === defineLayoutText
@@ -50,10 +52,13 @@ export default defineComponent({
         router.push({ name: key });
       },
     });
+
+    const collapsed = computed(() => store.state.menu.collapsed);
     return {
       menus,
       openKeys,
       selectedKeys,
+      collapsed,
     };
   },
 });

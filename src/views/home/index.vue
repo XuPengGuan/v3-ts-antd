@@ -15,7 +15,7 @@
 import { defineComponent, getCurrentInstance } from "vue";
 
 export default defineComponent({
-  name: "index",
+  name: "homeIndex",
   // mounted() {
   //   window.onload = () => {
   //     let iframe = document.getElementById("iframe");

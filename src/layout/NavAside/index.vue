@@ -1,30 +1,18 @@
 <template>
-  <aside class="aside-wrapper">
-    <logo />
-    <base-menu class="native_base-menu-wrapper" />
+  <aside
+    class="aside-wrapper transition-all flex flex-col bg-[#022140]"
+    :class="collapsed ? 'w-80' : 'w-256'"
+  >
+    <logo :collapsed="collapsed" />
+    <base-menu class="flex-1" />
   </aside>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { useStore } from "vuex";
+import { computed } from "vue";
 import Logo from "./Logo.vue";
 import BaseMenu from "./BaseMenu.vue";
-export default {
-  name: "index",
-  components: {
-    Logo,
-    BaseMenu,
-  },
-};
+const store = useStore();
+const collapsed = computed(() => store.state.menu.collapsed);
 </script>
-
-<style scoped lang="less">
-.aside-wrapper {
-  width: 256px;
-  display: flex;
-  flex-direction: column;
-  background-color: #022140;
-  .native_base-menu-wrapper {
-    flex: 1;
-  }
-}
-</style>

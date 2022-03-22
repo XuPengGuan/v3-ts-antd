@@ -58,7 +58,5 @@
 </template>
 
 <script>
-export default {
-  name: "ref",
-};
+export default {};
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div title="这是title提示">{{ count }}</div>
+    <div class="text-red-700 my-30" title="这是title提示">{{ count }}</div>
     <button @click="count++">增加count</button>
     <div>{{ props }}</div>
     <div>{{ emits }}</div>

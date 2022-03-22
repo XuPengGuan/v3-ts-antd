@@ -57,7 +57,7 @@
 <script>
 import { defineComponent, computed, ref } from "vue";
 import { useRoute } from "vue-router";
-import store from "@/store";
+import { useStore } from "vuex";
 import router from "@/router";
 import TabViewBarExtra from "./TabsViewBarExtra";
 import { defineHomeText } from "@/utils/enum";
@@ -69,6 +69,7 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
+    const store = useStore();
 
     const tabsActiveKey = computed({
       get() {

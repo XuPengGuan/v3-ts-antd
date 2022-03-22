@@ -73,16 +73,14 @@ const routes: Array<RouteRecordRaw> = [
         path: "/vueuse",
         name: "vueuse",
         component: () => import("@/views/index.vue"),
+        meta: {
+          icon: "ExportOutlined",
+        },
         children: [
           {
             path: "useJwt",
             name: "useJwt",
             component: () => import("@/views/vueuse/useJwt/index.vue"),
-          },
-          {
-            path: "useDrauu",
-            name: "useDrauu",
-            component: () => import("@/views/vueuse/useDrauu/index.vue"),
           },
           {
             path: "useCookies",

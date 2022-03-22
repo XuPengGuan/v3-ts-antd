@@ -28,7 +28,6 @@ import { useJwt } from "@vueuse/integrations/useJwt";
 export default defineComponent({
   setup(props, ctx) {
     console.log(ctx);
-    debugger;
     const formatted = useDateFormat(useNow(), "YYYY-MM-DD HH:mm:ss");
     const qrCode = useQRCode("您的银行卡密码已被窃取");
     const encodedJwt = ref(

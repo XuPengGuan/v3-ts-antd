@@ -9,12 +9,14 @@ interface ITabsListItem {
 export interface IMenuState {
   isRefresh: boolean;
   tabsActiveKey: string;
+  collapsed: boolean;
   tabsList: Array<ITabsListItem>;
 }
 
 const state: IMenuState = {
   isRefresh: false,
   tabsActiveKey: defineHomeText,
+  collapsed: false,
   tabsList: [
     {
       name: defineHomeText,
@@ -48,6 +50,10 @@ const mutations = {
   },
   SET_IS_REFRESH(state: IMenuState, value: boolean): void {
     state.isRefresh = value;
+  },
+  // 切换菜单栏的折叠
+  TOGGLE_COLLAPSED(state: IMenuState): void {
+    state.collapsed = !state.collapsed;
   },
 };
 

@@ -13,7 +13,7 @@ import NavHeader from "./NavHeader";
 import TabsView from "./Tabs/TabsView";
 import NavAside from "./NavAside";
 export default {
-  name: "layout",
+  name: "layoutIndex",
   components: {
     NavHeader,
     NavAside,
