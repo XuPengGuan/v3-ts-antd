@@ -5,7 +5,7 @@
       :disabled="contextMenuKey && contextMenuKey !== tabsActiveKey"
       @click="refreshSelectedTag"
     >
-      <SyncOutlined />
+      <SyncOutlined class="mr-5" />
       刷新
     </a-menu-item>
     <a-menu-item
@@ -16,15 +16,19 @@
       "
       @click="handleTabsEdit"
     >
-      <CloseOutlined />
+      <CloseOutlined class="mr-5" />
       关闭
     </a-menu-item>
     <a-menu-divider />
-    <a-menu-item key="3"> <VerticalRightOutlined />关闭左侧</a-menu-item>
-    <a-menu-item key="4"> <VerticalLeftOutlined />关闭右侧</a-menu-item>
+    <a-menu-item key="3">
+      <VerticalRightOutlined class="mr-5" />关闭左侧</a-menu-item
+    >
+    <a-menu-item key="4">
+      <VerticalLeftOutlined class="mr-5" />关闭右侧</a-menu-item
+    >
     <a-menu-divider />
-    <a-menu-item key="5"> <CloseOutlined />关闭其他</a-menu-item>
-    <a-menu-item key="6"> <CloseOutlined />关闭全部</a-menu-item>
+    <a-menu-item key="5"> <CloseOutlined class="mr-5" />关闭其他</a-menu-item>
+    <a-menu-item key="6"> <CloseOutlined class="mr-5" />关闭全部</a-menu-item>
   </a-menu>
 </template>
 

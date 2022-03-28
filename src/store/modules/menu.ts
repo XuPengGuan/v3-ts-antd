@@ -1,3 +1,4 @@
+import { message } from "ant-design-vue";
 import { defineHomeText } from "@/utils/enum";
 import router from "@/router";
 import { ActionContext } from "vuex";
@@ -39,6 +40,10 @@ const mutations = {
   // 删除tabs某一项
   REMOVE_TABS_LIST_ITEM(state: IMenuState, key: string): void {
     const { tabsList } = state;
+    if (tabsList.length <= 1) {
+      message.warning("最后一项了，不能删除");
+      return;
+    }
     const [removeKey] = tabsList.splice(
       tabsList.findIndex((item) => item.name === key),
       1
@@ -48,6 +53,7 @@ const mutations = {
       router.push({ name: defineHomeText });
     }
   },
+  // 设置是否刷新
   SET_IS_REFRESH(state: IMenuState, value: boolean): void {
     state.isRefresh = value;
   },
@@ -55,6 +61,14 @@ const mutations = {
   TOGGLE_COLLAPSED(state: IMenuState): void {
     state.collapsed = !state.collapsed;
   },
+  // REMOVE_LEFT_ALL_TABS(state: IMenuState) {
+  //   console.log(state);
+  //   const { tabsList } = state;
+  //   tabsList.splice(
+  //     0,
+  //     tabsList.findIndex((item) => item.name === key)
+  //   );
+  // },
 };
 
 const actions = {

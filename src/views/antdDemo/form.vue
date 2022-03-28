@@ -54,12 +54,12 @@
 </template>
 <script lang="ts">
 import { ValidateErrorEntity } from "ant-design-vue/es/form/interface";
-import { Moment } from "moment";
+// import { Moment } from "moment";
 import { defineComponent, reactive, ref, toRaw, UnwrapRef } from "vue";
 interface FormState {
   name: string;
   region: string | undefined;
-  date1: Moment | undefined;
+  date1: undefined;
   delivery: boolean;
   type: string[];
   resource: string;

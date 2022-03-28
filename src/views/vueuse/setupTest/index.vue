@@ -5,13 +5,18 @@
     <div>{{ props }}</div>
     <div>{{ emits }}</div>
     <div>789</div>
-    <SubCom name="张三" :count="count" @changeName="changeName" />
+    <SubCom
+      ref="SubComDom"
+      name="张三"
+      :count="count"
+      @changeName="changeName"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
 import SubCom from "./SubCom";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import type { Ref } from "vue";
 const count: Ref<number> = ref(78119);
 
@@ -28,6 +33,10 @@ const changeName = (value) => {
   // console.log("子组件传值", value);
   alert("子组件来值：" + value);
 };
+const SubComDom = ref(null);
+onMounted(() => {
+  console.log(SubComDom.value, "SubComDom");
+});
 </script>
 
 <style scoped></style>

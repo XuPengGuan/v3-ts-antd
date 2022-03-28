@@ -5,7 +5,7 @@ import store from "./store";
 const app = createApp(App);
 import antdV from "@/core";
 import components from "./components";
-import "@/assets/styles/index.less";
+import "@/styles/index.less";
 
 // console.log(components, "components, components");
 import "./permission.ts";

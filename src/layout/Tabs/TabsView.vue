@@ -21,7 +21,6 @@
             />
             <span class="tab-name-wrapper">{{ item.name }}</span>
             <CloseOutlined
-              v-if="item.name !== defineHomeText"
               class="tab-close-wrapper"
               @click.stop="handleTabsEdit(item.name)"
             />
@@ -32,15 +31,13 @@
         </a-dropdown>
       </template>
     </a-tab-pane>
-    <template #tabBarExtraContent>
-      <div class="tabs-view-bar-extra-wrapper">
-        <a-dropdown :trigger="['hover']">
-          <DownOutlined />
-          <template #overlay>
-            <TabViewBarExtra />
-          </template>
-        </a-dropdown>
-      </div>
+    <template #rightExtra>
+      <a-dropdown placement="bottomRight">
+        <DownOutlined class="py-10 px-20" />
+        <template #overlay>
+          <TabViewBarExtra />
+        </template>
+      </a-dropdown>
     </template>
   </a-tabs>
   <div class="content-wrapper">
@@ -60,7 +57,6 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import router from "@/router";
 import TabViewBarExtra from "./TabsViewBarExtra";
-import { defineHomeText } from "@/utils/enum";
 
 export default defineComponent({
   name: "tabsView",
@@ -101,7 +97,6 @@ export default defineComponent({
       tabsActiveKey,
       tabsList,
       handleTabsEdit,
-      defineHomeText,
       contextMenuKey,
       handleContextmenu,
       isRefresh,
@@ -140,9 +135,6 @@ export default defineComponent({
   }
   :deep(.ant-tabs-bar) {
     margin-bottom: 0;
-  }
-  .tabs-view-bar-extra-wrapper {
-    margin-right: 20px;
   }
 }
 .content-wrapper {

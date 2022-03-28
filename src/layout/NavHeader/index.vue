@@ -13,7 +13,7 @@
       <ExportOutlined class="icon-wrapper" />
       <ExportOutlined class="icon-wrapper" />
       <ExportOutlined class="icon-wrapper" />
-      <a-dropdown>
+      <a-dropdown placement="bottom">
         <span class="system-wrapper">系统管理</span>
         <template #overlay>
           <a-menu>

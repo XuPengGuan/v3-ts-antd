@@ -67,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
             name: "获取ref",
             component: () => import("@/views/antdDemo/ref.vue"),
           },
+          {
+            path: "tabs",
+            name: "tabs测试",
+            component: () => import("@/views/antdDemo/Tabs.vue"),
+          },
         ],
       },
       {

@@ -8,7 +8,10 @@ import {
   Dropdown,
   Tabs,
   Tooltip,
+  message,
 } from "ant-design-vue";
+
+console.log(message, "message");
 import {
   RedditOutlined,
   UserOutlined,
@@ -27,7 +30,7 @@ import {
 const ant = {
   // eslint-disable-next-line
   install(Vue: any) {
-    // Vue.config.globalProperties.$message = message;
+    Vue.config.globalProperties.$message = message;
 
     // 基础组件
     Vue.component(Button.name, Button);
