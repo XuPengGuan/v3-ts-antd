@@ -11,7 +11,6 @@ import {
   message,
 } from "ant-design-vue";
 
-console.log(message, "message");
 import {
   RedditOutlined,
   UserOutlined,

@@ -41,7 +41,7 @@
     </template>
   </a-tabs>
   <div class="content-wrapper">
-    <div class="router-viewer">
+    <div class="router-viewer" id="container">
       <router-view v-if="!isRefresh" v-slot="{ Component }">
         <keep-alive>
           <component :is="Component" />

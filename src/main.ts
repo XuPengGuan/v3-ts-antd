@@ -6,6 +6,7 @@ const app = createApp(App);
 import antdV from "@/core";
 import components from "./components";
 import "@/styles/index.less";
+import "@/views/qk/index";
 
 // console.log(components, "components, components");
 import "./permission.ts";

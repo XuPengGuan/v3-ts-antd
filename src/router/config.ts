@@ -99,6 +99,21 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        path: "/qk",
+        name: "qk",
+        meta: {
+          icon: "ExportOutlined",
+        },
+        component: () => import("@/views/index.vue"),
+        children: [
+          {
+            path: "vue-project",
+            name: "vue-project",
+            component: () => import("@/views/qk/vue-project.vue"),
+          },
+        ],
+      },
     ],
   },
   {
